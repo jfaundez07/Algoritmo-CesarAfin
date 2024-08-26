@@ -32,7 +32,6 @@ def getKey() -> int: # solicita la clave
         else:
             print(f'Introduzca una clave valida (1-{key_max_size})')
 
-#message debe venir en mayus
 def encryptDecryptMessage(message: str, key: int, action: str) -> str: # encripta o desencripta el mensaje
     encrypted = ''
     for letter in message:
@@ -54,10 +53,17 @@ def encryptLetter(letter: str, key: int, action: str) -> str: # encripta una let
         if value == encrypted_value:
             return key
 
-action = getAction()
+def main():
+    while True:
+        print('\nContinuar? (s: SI)')
+        choice = input().lower()
 
-if action == 'e':
-    key = getKey()
-    message = getMessage()
-    print(encryptMessage(message, key))
+        if choice != 's':
+            break
 
+        action = getAction()
+        key = getKey()
+        message = getMessage()
+        print(encryptDecryptMessage(message, key, action))
+
+main()
