@@ -7,11 +7,11 @@ alphabet = {
     'X': 23, 'Y': 24, 'Z': 25
 }
 
-def getMessage() -> str:
+def getMessage() -> str: # solicita el mensaje a encriptar
     print('Introduzca el mensaje:')
     return input().upper()
 
-def getAction () -> str:
+def getAction () -> str: # solicita la accion a realizar (encriptar o desencriptar)
     while True:
         print('Seleccione una accion:' + '\n'
               '[e] encriptar' + '\n'
@@ -22,7 +22,7 @@ def getAction () -> str:
         else:
             print('Seleccione una accion valida')
 
-def getKey() -> int:
+def getKey() -> int: # solicita la clave
     key = 0
     while True:
         print(f'Introduzca la clave (1-{key_max_size})')
@@ -32,23 +32,27 @@ def getKey() -> int:
         else:
             print(f'Introduzca una clave valida (1-{key_max_size})')
 
-def encryptMessage(message: str, key: int) -> str: #message debe venir en mayus
+#message debe venir en mayus
+def encryptDecryptMessage(message: str, key: int, action: str) -> str: # encripta o desencripta el mensaje
     encrypted = ''
     for letter in message:
         if letter in alphabet:
-            encrypted += encryptLetter(letter, key)
+            encrypted += encryptLetter(letter, key, action)
         else:
             encrypted += letter
     return encrypted
 
-def encryptLetter(letter: str, key: int) -> str:
+def encryptLetter(letter: str, key: int, action: str) -> str: # encripta una letra
     letter_value = alphabet[letter]
-    encrypted_value = (letter_value + key) % key_max_size #aplica modulo siempre, pero si es 
+
+    if action == 'e':
+        encrypted_value = (letter_value + key) % key_max_size
+    elif action == 'd':
+        encrypted_value = (letter_value - key) % key_max_size
+
     for key, value in alphabet.items():
         if value == encrypted_value:
             return key
-    return letter
-
 
 action = getAction()
 
