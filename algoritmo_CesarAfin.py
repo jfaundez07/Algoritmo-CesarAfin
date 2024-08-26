@@ -1,3 +1,5 @@
+from aritmeticaModular import sumaModular, restaModular
+
 key_max_size = 26
 
 alphabet = {
@@ -45,9 +47,9 @@ def encryptLetter(letter: str, key: int, action: str) -> str: # encripta una let
     letter_value = alphabet[letter]
 
     if action == 'e':
-        encrypted_value = (letter_value + key) % key_max_size
+        encrypted_value = sumaModular(letter_value, key, key_max_size) # (letter_value + key) % key_max_size
     elif action == 'd':
-        encrypted_value = (letter_value - key) % key_max_size
+        encrypted_value = restaModular(letter_value, key, key_max_size) # (letter_value - key) % key_max_size
 
     for key, value in alphabet.items():
         if value == encrypted_value:
@@ -61,9 +63,9 @@ def main():
         if choice != 's':
             break
 
-        action = getAction()
-        key = getKey()
-        message = getMessage()
+        action: str = getAction()
+        key: int = getKey()
+        message: str = getMessage()
         print(encryptDecryptMessage(message, key, action))
 
 main()
