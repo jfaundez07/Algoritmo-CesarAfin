@@ -17,7 +17,7 @@ Modo de uso:
 5) Iterar.
 
 ## Referencias:
-[Logica del cifrado cesar afin (1)](https://inventwithpython.com/es/14.html)
+[Logica del cifrado cesar afin (1)](https://fiubacryptolearningtools.sourceforge.net/affine.html)
 
 [Logica del cifrado cesar afin (2) - Video](https://www.youtube.com/watch?v=4dbc3oEvyfc)
 
