@@ -4,7 +4,7 @@
 
 Modo de uso:
 
-Para encriptar, se utiliza f(x) = (ax + b) mod n 
+Para encriptar, se utiliza f(x) = (ax + b) mod n   
 Para desencriptar, se utiliza f(x) = [ a^-1 * (x -b) ] mod n
 
 1) Tipear 's' para continuar, o culalquier otra letra para finalizar.
